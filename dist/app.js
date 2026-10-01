@@ -1,11 +1,11 @@
 const courses = {
   short: {
-    title: "2시간 핵심 과정",
-    minutes: 120,
+    title: "2차시 핵심 과정",
+    minutes: 90,
     description: "사실 확인부터 재발 방지 계획까지 핵심 활동을 완성합니다.",
     modules: [
       {
-        title: "시작하기: 안전한 참여 약속", minutes: 10,
+        title: "시작하기: 안전한 참여 약속", minutes: 7,
         intro: "이 과정은 벌을 주기 위한 글쓰기 시간이 아니라, 내가 한 선택을 살펴보고 다음 선택을 바꾸는 시간입니다. 피해학생이나 관련 학생의 이름은 쓰지 마세요.",
         safety: "교육 중에도 피해학생에게 연락하거나, 다른 사람을 통해 말을 전하거나, 온라인에서 언급하면 안 됩니다. 보복이나 압박으로 느껴질 행동도 하지 않습니다.",
         questions: [
@@ -14,7 +14,7 @@ const courses = {
         ]
       },
       {
-        title: "학교폭력 바로 알기", minutes: 20,
+        title: "학교폭력 바로 알기", minutes: 14,
         intro: "장난인지 아닌지는 한 사람의 의도만으로 결정되지 않습니다. 행동의 내용, 반복 여부, 힘의 차이, 상대방이 겪은 피해를 함께 봐야 합니다.",
         questions: [
           {id:"quiz1", type:"quiz", prompt:"친구가 싫다고 했지만 별명을 계속 부른 경우 가장 적절한 판단은?", options:["웃으며 한 말이므로 항상 장난이다.","싫다는 의사를 무시해 반복했다면 언어폭력이 될 수 있다.","친한 친구 사이에서는 문제가 되지 않는다."], answer:1, explain:"상대방이 원하지 않는 표현을 반복하면 친밀도나 말한 사람의 의도와 관계없이 피해가 생길 수 있습니다."},
@@ -23,7 +23,7 @@ const courses = {
         ]
       },
       {
-        title: "사실과 해석 구분하기", minutes: 25,
+        title: "사실과 해석 구분하기", minutes: 18,
         intro: "사실은 녹화된 영상처럼 확인할 수 있는 행동입니다. ‘걔가 나를 무시했다’는 해석이고, ‘내 말에 대답하지 않았다’는 관찰한 사실입니다.",
         questions: [
           {id:"facts", type:"text", prompt:"사람의 이름을 쓰지 말고, 내가 실제로 한 말과 행동을 시간 순서대로 적으세요.", hint:"‘상대가 먼저’라는 설명보다 내가 말한 표현, 보낸 메시지, 한 행동을 구체적으로 적습니다.", min:80},
@@ -32,7 +32,7 @@ const courses = {
         ]
       },
       {
-        title: "행동이 만든 영향", minutes: 25,
+        title: "행동이 만든 영향", minutes: 18,
         intro: "같은 행동도 사람마다 다르게 느낄 수 있습니다. 영향은 눈에 보이는 상처뿐 아니라 불안, 등교 부담, 관계 단절, 학급 분위기 변화로도 나타납니다.",
         questions: [
           {id:"impactVictim", type:"text", prompt:"상대방이 겪었을 수 있는 감정·생활의 변화·두려움을 세 가지 이상 생각해 쓰세요.", min:60},
@@ -41,7 +41,7 @@ const courses = {
         ]
       },
       {
-        title: "다른 선택 연습", minutes: 20,
+        title: "다른 선택 연습", minutes: 15,
         intro: "좋은 대안은 ‘참는다’로 끝나지 않습니다. 멈추기, 장소를 벗어나기, 온라인 접속을 끊기, 믿을 수 있는 어른에게 알리기처럼 실제로 할 수 있어야 합니다.",
         questions: [
           {id:"trigger", type:"text", prompt:"내가 말이나 행동을 거칠게 하기 전에 나타나는 신호를 적으세요.", hint:"몸의 신호, 머릿속 생각, 자주 생기는 상황으로 나누어 생각해 보세요.", min:45},
@@ -50,7 +50,7 @@ const courses = {
         ]
       },
       {
-        title: "나의 재발 방지 계획", minutes: 20,
+        title: "나의 재발 방지 계획", minutes: 18,
         intro: "마지막 계획은 구체적이고 확인 가능해야 합니다. ‘잘하겠다’보다 언제, 어디서, 무엇을 할지 씁니다.",
         questions: [
           {id:"stop", type:"text", prompt:"앞으로 반드시 멈출 행동 두 가지를 쓰세요.", min:40},
@@ -63,17 +63,17 @@ const courses = {
     ]
   },
   long: {
-    title: "4시간 심화 과정",
-    minutes: 240,
+    title: "4차시 심화 과정",
+    minutes: 180,
     description: "디지털 행동, 감정·충동, 관계와 공동체 영향까지 깊이 살펴봅니다.",
     modules: []
   }
 };
 
 courses.long.modules = [
-  ...courses.short.modules.slice(0, 2).map((m, i) => ({...m, minutes: i === 0 ? 15 : 30})),
+  ...courses.short.modules.slice(0, 2).map((m, i) => ({...m, minutes: i === 0 ? 10 : 20})),
   {
-    title:"온라인에서는 더 빨리 멈추기", minutes:25,
+    title:"온라인에서는 더 빨리 멈추기", minutes:15,
     intro:"온라인 글과 사진은 짧은 시간에 복제되고, 지워도 다른 사람의 기기에 남을 수 있습니다. ‘직접 만들지 않았다’는 이유로 전달의 책임이 사라지지 않습니다.",
     questions:[
       {id:"digitalQuiz1", type:"quiz", prompt:"누군가를 놀리는 게시물을 친구가 보내왔을 때 가장 안전한 행동은?", options:["재미있으면 친한 친구에게만 보낸다.","저장하거나 전달하지 않고, 필요하면 믿을 수 있는 어른에게 알린다.","좋아요만 누르고 댓글은 쓰지 않는다."], answer:1, explain:"저장·전달·반응은 게시물의 확산과 피해를 키울 수 있습니다. 먼저 확산을 멈추는 것이 중요합니다."},
@@ -81,25 +81,25 @@ courses.long.modules = [
       {id:"digitalRules", type:"text", prompt:"게시·댓글·전달 전에 확인할 나만의 세 가지 규칙을 만드세요.", min:65}
     ]
   },
-  {...courses.short.modules[2], minutes:35},
+  {...courses.short.modules[2], minutes:20},
   {
-    title:"멈출 수 있었던 선택 지점", minutes:25,
+    title:"멈출 수 있었던 선택 지점", minutes:15,
     intro:"사건은 한 번의 선택으로만 이루어지지 않습니다. 처음 불편함을 느낀 순간, 친구가 부추긴 순간, 메시지를 보내기 전처럼 방향을 바꿀 지점이 있습니다.",
     questions:[
       {id:"turningPoints", type:"text", prompt:"상황이 커지기 전 멈추거나 도움을 요청할 수 있었던 순간을 세 곳 찾으세요.", min:80},
       {id:"pressure", type:"text", prompt:"친구의 분위기나 단체의 압력이 내 선택에 영향을 주었다면, 다음에는 어떻게 거절할 수 있을까요? 실제 문장으로 쓰세요.", min:50}
     ]
   },
-  {...courses.short.modules[3], minutes:35},
+  {...courses.short.modules[3], minutes:20},
   {
-    title:"감정과 충동 다루기", minutes:25,
+    title:"감정과 충동 다루기", minutes:20,
     intro:"감정은 잘못이 아니지만 감정 때문에 한 행동에는 책임이 따릅니다. 감정을 알아차리고 행동 사이에 시간을 만드는 연습을 합니다.",
     questions:[
       {id:"emotionChain", type:"text", prompt:"최근 갈등 상황을 ‘상황 → 생각 → 몸의 신호 → 감정 → 행동’ 순서로 나누어 쓰세요.", min:80},
       {id:"pausePlan", type:"text", prompt:"감정이 7점 이상 올라갔을 때 실행할 3단계 멈춤 계획을 쓰세요.", hint:"예: 휴대전화 내려놓기 → 복도나 상담실로 이동하기 → 교사에게 말하기", min:60}
     ]
   },
-  {...courses.short.modules[4], minutes:25},
+  {...courses.short.modules[4], minutes:20},
   {
     title:"책임 있는 회복", minutes:15,
     intro:"회복은 상대방에게 용서를 요구하는 일이 아닙니다. 상대방의 안전과 선택을 존중하면서 내가 해야 할 책임을 지속하는 것입니다.",
@@ -108,7 +108,7 @@ courses.long.modules = [
       {id:"respect", type:"text", prompt:"상대방이 사과나 만남을 원하지 않더라도 내가 지켜야 할 행동은 무엇인가요?", min:40}
     ]
   },
-  {...courses.short.modules[5], minutes:30}
+  {...courses.short.modules[5], minutes:25}
 ];
 
 const app = document.querySelector("#app");
@@ -151,7 +151,7 @@ function courseCard(id, label, items) {
   const saved = c.modules.some((m, mi)=>m.questions.some(q=>getValue(id,mi,q.id)));
   return `<article class="course-card ${id === "long" ? "long" : ""}">
     <p class="eyebrow">${label} 과정</p><h2>${c.title}</h2><p>${c.description}</p>
-    <div class="course-meta"><span class="tag ${id === "long" ? "cool" : ""}">총 ${c.minutes}분</span><span class="tag ${id === "long" ? "cool" : ""}">${c.modules.length}단계</span>${saved?'<span class="tag">작성 중</span>':''}</div>
+      <div class="course-meta"><span class="tag ${id === "long" ? "cool" : ""}">${id === "short" ? "45분 × 2차시" : "45분 × 4차시"}</span><span class="tag ${id === "long" ? "cool" : ""}">총 ${c.minutes}분</span><span class="tag ${id === "long" ? "cool" : ""}">${c.modules.length}단계</span>${saved?'<span class="tag">작성 중</span>':''}</div>
     <ul>${items.map(x=>`<li>${x}</li>`).join("")}</ul>
     <button class="primary start-course" data-course="${id}" type="button">${saved ? "이어서 하기" : "과정 시작"}</button>
   </article>`;
@@ -178,7 +178,7 @@ function renderCourse() {
   const pct = Math.round((completed/c.modules.length)*100);
   app.innerHTML = `<div class="course-shell">
     <aside class="course-sidebar">
-      <p class="eyebrow">${c.minutes}분 과정</p><h2>${c.title}</h2>
+      <p class="eyebrow">45분 수업 기준 · 총 ${c.minutes}분</p><h2>${c.title}</h2>
       <div class="progress-track" aria-label="완료율 ${pct}%"><div class="progress-bar" style="width:${pct}%"></div></div>
       <p><strong>${completed}/${c.modules.length}</strong>단계 완료</p>
       <div class="step-list">${c.modules.map((x,i)=>`<button class="step-button ${i===state.step?'active':''} ${isModuleDone(state.course,i)?'done':''}" data-step="${i}" type="button">${i+1}. ${x.title}</button>`).join("")}</div>
@@ -278,7 +278,7 @@ function startTicker() {
 function renderTeacher() {
   app.innerHTML=`<section class="teacher-hero"><p class="eyebrow">교사용 운영 안내</p><h1>설명은 줄이고,<br>확인은 정확하게</h1><p class="lead">학생이 화면의 안내에 따라 혼자 작성하되, 교사는 시작 전 안전 원칙을 확인하고 종료 후 결과물을 짧게 검토합니다.</p><div class="button-row"><button class="primary" onclick="window.print()" type="button">운영 안내 인쇄</button></div></section>
   <section class="teacher-grid">
-    <article class="info-card"><h2>시작 전 5분</h2><ul class="checklist"><li>조치 결정문의 이수 시간과 기관 기준 확인</li><li>조용한 개별 좌석과 인터넷 기기 준비</li><li>피해학생 이름·개인정보를 입력하지 않도록 안내</li><li>직접 접촉·대리 전달·온라인 언급 금지 확인</li><li>힘들 때 도움을 요청할 담당 교사 안내</li></ul></article>
+    <article class="info-card"><h2>시작 전 5분</h2><ul class="checklist"><li>2차시 과정은 90분, 4차시 과정은 180분으로 운영</li><li>조치 결정문의 이수 시간과 기관 기준 확인</li><li>조용한 개별 좌석과 인터넷 기기 준비</li><li>피해학생 이름·개인정보를 입력하지 않도록 안내</li><li>직접 접촉·대리 전달·온라인 언급 금지 확인</li><li>힘들 때 도움을 요청할 담당 교사 안내</li></ul></article>
     <article class="info-card"><h2>진행 중</h2><ul class="checklist"><li>교사는 지속적으로 옆에 있지 않아도 됨</li><li>정답이나 반성 표현을 대신 말해주지 않음</li><li>화면만 켜둔 경우 단계별 결과물로 확인</li><li>휴식은 학교 일정에 맞춰 별도 제공</li><li>위협·보복·자해·타해 표현 발견 시 즉시 개입</li></ul></article>
     <article class="info-card full"><h2>종료 후 3단계 검토</h2><table class="rubric"><thead><tr><th>판정</th><th>확인 기준</th><th>교사의 다음 행동</th></tr></thead><tbody><tr><td><strong>완료</strong></td><td>필수 항목이 작성되었고, 책임 행동과 재발 방지 계획이 구체적임</td><td>학생과 핵심 계획 1가지를 구두로 확인하고 기록 보관</td></tr><tr><td><strong>보완 필요</strong></td><td>다른 사람 탓만 하거나, 답이 지나치게 짧고 실행 계획이 모호함</td><td>부족한 문항만 표시하여 학생이 스스로 다시 작성</td></tr><tr><td><strong>상담 필요</strong></td><td>보복 의도, 위협, 자해·타해 암시, 심한 불안이나 피해 호소가 있음</td><td>혼자 돌려보내지 말고 학교의 상담·위기 대응 절차에 따라 조치</td></tr></tbody></table></article>
     <article class="info-card"><h2>검토할 핵심 6가지</h2><ul class="checklist"><li>필수 단계가 모두 작성되었는가</li><li>자신의 행동을 사실 중심으로 적었는가</li><li>다른 사람과 별개로 자신의 책임을 구분했는가</li><li>상대방과 공동체의 영향을 이해했는가</li><li>접촉·보복 금지 원칙을 이해했는가</li><li>도움을 요청할 어른과 시점이 정해졌는가</li></ul></article>

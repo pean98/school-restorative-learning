@@ -101,12 +101,19 @@ fieldset { margin: 0; padding: 0; border: 0; }
 .type-choice input { margin-top: .35rem; transform: scale(1.2); }
 .type-choice strong, .type-choice small { display: block; }
 .type-choice small { margin-top: .25rem; color: var(--muted); line-height: 1.5; }
+.type-grid.compact .type-choice { min-height: 78px; }
 .selected-types { margin: .8rem 0 1rem; padding: 1rem; border: 1px solid #b8cec8; border-radius: .8rem; background: #f0f7f5; }
 .selected-types > div { margin-top: .75rem; }
 .selected-types p { margin: .3rem 0 0; }
 .example { margin-top: .7rem; border: 1px solid #d9c67f; border-radius: .7rem; background: #fffaf0; }
 .example summary { padding: .7rem .85rem; color: #5f4b05; font-weight: 800; cursor: pointer; }
 .example p { margin: 0; padding: 0 .85rem .75rem; }
+.common-core { margin: .8rem 0 1.2rem; padding: 1rem 1.1rem; border-left: 5px solid var(--gold); background: var(--gold-soft); }
+.common-core ol { margin-bottom: 0; padding-left: 1.3rem; }
+.adaptive-stack { display: grid; gap: 1rem; }
+.lesson-card { padding: 1.1rem; border: 1px solid #b7cdc7; border-radius: .85rem; background: #f8fbfa; }
+.lesson-label { display: flex; align-items: center; gap: .65rem; margin-bottom: .8rem; font-size: 1.08rem; }
+.scenario { padding: .85rem; border-radius: .65rem; background: white; }
 .char-count { text-align: right; color: var(--muted); font-size: .82rem; }
 .module-actions { display: flex; justify-content: space-between; gap: .7rem; margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line); }
 

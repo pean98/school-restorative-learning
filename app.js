@@ -2,14 +2,16 @@ const courses = {
   short: {
     title: "2차시 핵심 과정",
     minutes: 90,
+    breakAfter: [2],
     description: "사실 확인부터 재발 방지 계획까지 핵심 활동을 완성합니다.",
     modules: [
       {
-        title: "시작하기: 안전한 참여 약속", minutes: 7,
+        title: "시작하기: 안전한 참여 약속", minutes: 10,
         intro: "이 과정은 벌을 주기 위한 글쓰기 시간이 아니라, 내가 한 선택을 살펴보고 다음 선택을 바꾸는 시간입니다. 피해학생이나 관련 학생의 이름은 쓰지 마세요.",
         safety: "교육 중에도 피해학생에게 연락하거나, 다른 사람을 통해 말을 전하거나, 온라인에서 언급하면 안 됩니다. 보복이나 압박으로 느껴질 행동도 하지 않습니다.",
         questions: [
           {id:"promise", type:"checks", prompt:"아래 약속을 모두 확인하세요.", options:["사람의 실명과 개인정보를 쓰지 않겠습니다.","다른 사람의 행동과 별개로 내가 한 행동을 살펴보겠습니다.","피해학생에게 직접 연락하거나 사과를 전달하지 않겠습니다.","힘든 내용이 떠오르면 교사나 상담교사에게 도움을 요청하겠습니다."]},
+          {id:"incidentTypes", type:"types", prompt:"이번 일과 관련된 행동 유형을 하나 이상 선택하세요. 여러 유형이 함께 있었다면 모두 선택할 수 있습니다."},
           {id:"goal", type:"text", prompt:"오늘 교육을 마친 뒤 달라지고 싶은 행동 한 가지를 쓰세요.", hint:"예: 화가 났을 때 단체대화방에 바로 글을 쓰지 않기", min:15}
         ]
       },
@@ -23,12 +25,13 @@ const courses = {
         ]
       },
       {
-        title: "사실과 해석 구분하기", minutes: 18,
+        title: "사실과 해석 구분하기", minutes: 21,
         intro: "사실은 녹화된 영상처럼 확인할 수 있는 행동입니다. ‘걔가 나를 무시했다’는 해석이고, ‘내 말에 대답하지 않았다’는 관찰한 사실입니다.",
         questions: [
           {id:"facts", type:"text", prompt:"사람의 이름을 쓰지 말고, 내가 실제로 한 말과 행동을 시간 순서대로 적으세요.", hint:"‘상대가 먼저’라는 설명보다 내가 말한 표현, 보낸 메시지, 한 행동을 구체적으로 적습니다.", min:80},
           {id:"interpretation", type:"text", prompt:"당시 내가 사실이라고 확신했지만 실제로는 내 생각이나 추측이었던 것은 무엇인가요?", hint:"예: 나를 일부러 무시한다고 생각했다.", min:30},
           {id:"responsibility", type:"text", prompt:"다른 사람의 행동과 관계없이 내가 책임져야 할 행동은 무엇인가요?", min:35}
+          ,{id:"typeReflection", type:"text", prompt:"내가 선택한 유형의 확인 질문을 읽고, 특히 돌아봐야 할 점을 구체적으로 쓰세요.", min:55}
         ]
       },
       {
@@ -41,7 +44,7 @@ const courses = {
         ]
       },
       {
-        title: "다른 선택 연습", minutes: 15,
+        title: "다른 선택 연습", minutes: 13,
         intro: "좋은 대안은 ‘참는다’로 끝나지 않습니다. 멈추기, 장소를 벗어나기, 온라인 접속을 끊기, 믿을 수 있는 어른에게 알리기처럼 실제로 할 수 있어야 합니다.",
         questions: [
           {id:"trigger", type:"text", prompt:"내가 말이나 행동을 거칠게 하기 전에 나타나는 신호를 적으세요.", hint:"몸의 신호, 머릿속 생각, 자주 생기는 상황으로 나누어 생각해 보세요.", min:45},
@@ -50,7 +53,7 @@ const courses = {
         ]
       },
       {
-        title: "나의 재발 방지 계획", minutes: 18,
+        title: "나의 재발 방지 계획", minutes: 14,
         intro: "마지막 계획은 구체적이고 확인 가능해야 합니다. ‘잘하겠다’보다 언제, 어디서, 무엇을 할지 씁니다.",
         questions: [
           {id:"stop", type:"text", prompt:"앞으로 반드시 멈출 행동 두 가지를 쓰세요.", min:40},
@@ -65,6 +68,7 @@ const courses = {
   long: {
     title: "4차시 심화 과정",
     minutes: 180,
+    breakAfter: [2, 4, 6],
     description: "디지털 행동, 감정·충동, 관계와 공동체 영향까지 깊이 살펴봅니다.",
     modules: []
   }
@@ -81,35 +85,73 @@ courses.long.modules = [
       {id:"digitalRules", type:"text", prompt:"게시·댓글·전달 전에 확인할 나만의 세 가지 규칙을 만드세요.", min:65}
     ]
   },
-  {...courses.short.modules[2], minutes:20},
+  {...courses.short.modules[2], minutes:25},
   {
-    title:"멈출 수 있었던 선택 지점", minutes:15,
+    title:"멈출 수 있었던 선택 지점", minutes:20,
     intro:"사건은 한 번의 선택으로만 이루어지지 않습니다. 처음 불편함을 느낀 순간, 친구가 부추긴 순간, 메시지를 보내기 전처럼 방향을 바꿀 지점이 있습니다.",
     questions:[
       {id:"turningPoints", type:"text", prompt:"상황이 커지기 전 멈추거나 도움을 요청할 수 있었던 순간을 세 곳 찾으세요.", min:80},
       {id:"pressure", type:"text", prompt:"친구의 분위기나 단체의 압력이 내 선택에 영향을 주었다면, 다음에는 어떻게 거절할 수 있을까요? 실제 문장으로 쓰세요.", min:50}
     ]
   },
-  {...courses.short.modules[3], minutes:20},
+  {...courses.short.modules[3], minutes:23},
   {
-    title:"감정과 충동 다루기", minutes:20,
+    title:"감정과 충동 다루기", minutes:22,
     intro:"감정은 잘못이 아니지만 감정 때문에 한 행동에는 책임이 따릅니다. 감정을 알아차리고 행동 사이에 시간을 만드는 연습을 합니다.",
     questions:[
       {id:"emotionChain", type:"text", prompt:"최근 갈등 상황을 ‘상황 → 생각 → 몸의 신호 → 감정 → 행동’ 순서로 나누어 쓰세요.", min:80},
       {id:"pausePlan", type:"text", prompt:"감정이 7점 이상 올라갔을 때 실행할 3단계 멈춤 계획을 쓰세요.", hint:"예: 휴대전화 내려놓기 → 복도나 상담실로 이동하기 → 교사에게 말하기", min:60}
     ]
   },
-  {...courses.short.modules[4], minutes:20},
+  {...courses.short.modules[4], minutes:18},
   {
-    title:"책임 있는 회복", minutes:15,
+    title:"책임 있는 회복", minutes:12,
     intro:"회복은 상대방에게 용서를 요구하는 일이 아닙니다. 상대방의 안전과 선택을 존중하면서 내가 해야 할 책임을 지속하는 것입니다.",
     questions:[
       {id:"repair", type:"text", prompt:"상대방에게 직접 접촉하지 않고 지금부터 할 수 있는 책임 있는 행동을 세 가지 쓰세요.", min:60},
       {id:"respect", type:"text", prompt:"상대방이 사과나 만남을 원하지 않더라도 내가 지켜야 할 행동은 무엇인가요?", min:40}
     ]
   },
-  {...courses.short.modules[5], minutes:25}
+  {...courses.short.modules[5], minutes:15}
 ];
+
+const typeData = [
+  {name:"신체폭력", desc:"때리기, 밀기, 발로 차기, 물건으로 다치게 하기 등", ask:"상대방의 신체 안전을 해친 행동, 멈추라는 신호, 다칠 가능성을 살펴보세요."},
+  {name:"언어폭력", desc:"욕설, 모욕, 비하, 소문 퍼뜨리기 등", ask:"실제로 사용한 표현, 들은 사람, 반복 여부와 그 말이 남길 영향을 살펴보세요."},
+  {name:"금품갈취", desc:"돈이나 물건을 빼앗거나 억지로 빌리고 돌려주지 않는 행동", ask:"상대방이 자유롭게 거절할 수 있었는지, 돈·물건·반환 약속을 살펴보세요."},
+  {name:"협박", desc:"겁을 주거나 해를 끼칠 듯 말하고 행동하는 것", ask:"상대방이 어떤 위협을 느꼈을지, 말·메시지·행동이 만든 두려움을 살펴보세요."},
+  {name:"강요", desc:"하기 싫은 행동을 시키거나 대신하게 하는 것", ask:"상대방에게 거절할 선택권이 있었는지, 거절했을 때 불이익을 암시했는지 살펴보세요."},
+  {name:"괴롭힘", desc:"장난을 내세워 반복적으로 불편함이나 고통을 주는 행동", ask:"장난이라는 말 뒤에 반복, 힘의 차이, 싫다는 표현의 무시가 있었는지 살펴보세요."},
+  {name:"따돌림", desc:"집단에서 의도적으로 빼거나 함께 피하고 소외시키는 행동", ask:"누가 배제되었는지, 온라인·교실에서 얼마나 이어졌는지, 동조한 행동을 살펴보세요."},
+  {name:"성폭력", desc:"성적인 말·접촉·사진·영상 등으로 불쾌감이나 피해를 주는 행동", ask:"구체적인 장면을 자세히 쓰지 않아도 됩니다. 동의가 없었던 말·접촉·공유가 있었는지 확인하고 반드시 교사와 상담하세요."}
+];
+
+const examples = {
+  goal:"예: 화가 나면 바로 메시지를 보내지 않고 10분 동안 휴대전화를 내려놓겠습니다.",
+  boundary:"예: 친하다는 이유로 싫어하는 별명을 여러 사람 앞에서 부른 행동입니다.",
+  facts:"예: 점심시간에 단체대화방에 사진을 올렸고, 두 번의 놀리는 댓글을 썼습니다. 이후 다른 친구가 공유했을 때 말리지 않았습니다.",
+  interpretation:"예: 대답하지 않는 것을 보고 나를 일부러 무시한다고 단정했지만, 실제 이유는 확인하지 않았습니다.",
+  responsibility:"예: 다른 친구가 먼저 말했더라도, 그 표현을 따라 쓰고 공유한 행동은 내 책임입니다.",
+  typeReflection:"예: 여러 사람이 보는 곳에서 같은 표현을 반복했고, 상대방이 싫다고 한 뒤에도 멈추지 않은 점을 돌아봐야 합니다.",
+  impactVictim:"예: 학교에 오기 싫었을 수 있고, 또 같은 일이 생길까 불안했을 수 있으며, 친구들을 믿기 어려워졌을 수 있습니다.",
+  impactOthers:"예: 목격한 친구들이 다음에는 자신도 대상이 될까 걱정하고, 학급에서 자유롭게 말하기 어려워졌을 수 있습니다.",
+  impactMe:"예: 친구와 교사의 신뢰가 낮아졌고, 내 행동을 설명하고 책임져야 하는 상황이 생겼습니다.",
+  trigger:"예: 얼굴이 뜨거워지고 ‘나를 무시한다’는 생각이 들 때 말이 거칠어집니다.",
+  threeChoices:"예: 그 자리를 벗어나기, 메시지를 보내기 전 교사에게 보여주기, 감정이 가라앉은 뒤 사실만 말하기.",
+  helpWords:"예: 지금 저는 화가 많이 나서 혼자 해결하면 말이 거칠어질 것 같습니다. 잠시 분리해 주세요.",
+  stop:"예: 단체대화방에서 친구를 언급하는 글을 쓰지 않겠습니다. 싫다고 한 별명을 다시 부르지 않겠습니다.",
+  start:"예: 갈등이 생기면 메시지를 보내기 전에 담당 교사에게 먼저 알리겠습니다.",
+  support:"예: 담임교사에게 감정이 7점 이상 올라가거나 온라인에서 다툼이 시작될 때 도움을 요청하겠습니다.",
+  final:"예: 이번 주 점심시간에 화가 나는 일이 생기면 복도로 나가 담임교사에게 먼저 상황을 말하겠습니다.",
+  digitalRisk:"예: 밤에 단체대화방에서 여러 명이 한 친구를 놀릴 때 갈등이 커집니다. 그때 대화방을 닫고 화면을 저장하지 않은 채 보호자에게 알리겠습니다.",
+  digitalRules:"예: 당사자의 허락이 있는가, 다른 사람이 보아도 안전한가, 내일 다시 읽어도 책임질 수 있는가를 확인합니다.",
+  turningPoints:"예: 처음 놀리는 말이 나왔을 때, 사진을 올리기 전, 친구가 그만하라고 했을 때 멈출 수 있었습니다.",
+  pressure:"예: ‘나는 그 일에 참여하지 않을 거야. 그만하고 다른 얘기하자.’라고 말하겠습니다.",
+  emotionChain:"예: 답장을 받지 못함 → 무시당했다고 생각함 → 심장이 빨리 뜀 → 화남 → 단체방에 공격적인 글을 씀.",
+  pausePlan:"예: 휴대전화 내려놓기 → 교실 밖 지정 장소로 이동하기 → 담당 교사에게 현재 감정을 말하기.",
+  repair:"예: 접촉 금지 지키기, 관련 게시물 확산 막기, 정해진 교육과 상담에 성실히 참여하기.",
+  respect:"예: 답이나 용서를 요구하지 않고, 마주치지 않도록 정해진 동선과 학교의 안내를 지키겠습니다."
+};
 
 const app = document.querySelector("#app");
 const toast = document.querySelector("#toast");
@@ -166,6 +208,7 @@ function startCourse(id) {
 function isQuestionDone(courseId, mi, q) {
   const value = getValue(courseId, mi, q.id);
   if(q.type === "checks") return value.split("|").filter(Boolean).length === q.options.length;
+  if(q.type === "types") return value.split("|").filter(Boolean).length >= 1;
   if(q.type === "quiz") return value !== "";
   return value.trim().length >= (q.min || 1);
 }
@@ -203,7 +246,11 @@ function renderCourse() {
 function renderQuestion(q, qi) {
   const value = getValue(state.course,state.step,q.id);
   const num = qi+1;
-  if(q.type === "text") return `<div class="question"><label class="prompt" for="${q.id}">${num}. ${q.prompt} <span class="required">필수</span></label><textarea id="${q.id}" data-q="${q.id}" data-type="text" data-min="${q.min||1}" placeholder="여기에 직접 작성하세요.">${escapeHtml(value)}</textarea>${q.hint?`<p class="hint">도움말: ${q.hint}</p>`:""}<div class="char-count"><span>${value.length}</span>자 · 충실한 답변 권장</div></div>`;
+  if(q.type === "text") return `<div class="question"><label class="prompt" for="${q.id}">${num}. ${q.prompt} <span class="required">필수</span></label>${q.id === "typeReflection" ? renderSelectedTypeGuide() : ""}<textarea id="${q.id}" data-q="${q.id}" data-type="text" data-min="${q.min||1}" placeholder="여기에 직접 작성하세요.">${escapeHtml(value)}</textarea>${q.hint?`<p class="hint">도움말: ${q.hint}</p>`:""}${examples[q.id]?`<details class="example"><summary>예시 답안 보기</summary><p><strong>그대로 옮기지 말고 자신의 상황과 말로 작성하세요.</strong></p><p>${examples[q.id]}</p></details>`:""}<div class="char-count"><span>${value.length}</span>자 · 충실한 답변 권장</div></div>`;
+  if(q.type === "types") {
+    const selected = value.split("|");
+    return `<fieldset class="question"><legend>${num}. ${q.prompt} <span class="required">필수</span></legend><p class="hint">정확한 법적 판단이 아니라 교육을 위한 자기점검입니다. 잘 모르겠으면 가까운 유형을 선택하고 교사에게 확인하세요.</p><div class="type-grid">${typeData.map((t,i)=>`<label class="type-choice"><input type="checkbox" data-q="${q.id}" data-type="types" value="${i}" ${selected.includes(String(i))?'checked':''}><span><strong>${t.name}</strong><small>${t.desc}</small></span></label>`).join("")}</div></fieldset>`;
+  }
   if(q.type === "checks") {
     const selected = value.split("|");
     return `<fieldset class="question"><legend>${num}. ${q.prompt} <span class="required">필수</span></legend><div class="choice-list">${q.options.map((o,i)=>`<label class="choice"><input type="checkbox" data-q="${q.id}" data-type="checks" value="${i}" ${selected.includes(String(i))?'checked':''}><span>${o}</span></label>`).join("")}</div></fieldset>`;
@@ -211,12 +258,18 @@ function renderQuestion(q, qi) {
   return `<fieldset class="question"><legend>${num}. ${q.prompt} <span class="required">필수</span></legend><div class="choice-list">${q.options.map((o,i)=>`<label class="choice"><input type="radio" name="${q.id}" data-q="${q.id}" data-type="quiz" value="${i}" ${value===String(i)?'checked':''}><span>${o}</span></label>`).join("")}</div><div class="feedback ${value!==''?'show':''}" id="feedback-${q.id}">${value!=='' ? `<strong>${Number(value)===q.answer?'확인했습니다.':'다시 생각해 보세요.'}</strong><br>${q.explain}` : ''}</div></fieldset>`;
 }
 
+function renderSelectedTypeGuide() {
+  const selected = getValue(state.course,0,"incidentTypes").split("|").filter(Boolean).map(Number);
+  if(!selected.length) return `<div class="notice">먼저 1단계에서 관련 행동 유형을 선택하세요.</div>`;
+  return `<div class="selected-types"><p><strong>선택한 유형별 확인 질문</strong></p>${selected.map(i=>typeData[i]).filter(Boolean).map(t=>`<div><span class="tag">${t.name}</span><p>${t.ask}</p></div>`).join("")}</div>`;
+}
+
 function bindCourse() {
   document.querySelectorAll("[data-step]").forEach(b=>b.addEventListener("click",()=>{ saveVisible(); state.step=Number(b.dataset.step); renderCourse(); window.scrollTo({top:0}); }));
   document.querySelectorAll("textarea").forEach(t=>t.addEventListener("input",()=>{ setValue(state.course,state.step,t.dataset.q,t.value); t.parentElement.querySelector(".char-count span").textContent=t.value.length; }));
   document.querySelectorAll("input").forEach(i=>i.addEventListener("change",()=>{
     const qid=i.dataset.q, type=i.dataset.type;
-    if(type === "checks") { const vals=[...document.querySelectorAll(`input[data-q="${qid}"]:checked`)].map(x=>x.value); setValue(state.course,state.step,qid,vals.join("|")); }
+    if(type === "checks" || type === "types") { const vals=[...document.querySelectorAll(`input[data-q="${qid}"]:checked`)].map(x=>x.value); setValue(state.course,state.step,qid,vals.join("|")); }
     else { setValue(state.course,state.step,qid,i.value); renderCourse(); }
   }));
   document.querySelector("#prev").addEventListener("click",()=>{ if(state.step>0){saveVisible(); state.step--; renderCourse(); window.scrollTo({top:0});} });
@@ -238,8 +291,21 @@ function nextStep() {
     document.querySelector(`[data-q="${missing.id}"]`)?.focus();
     return;
   }
-  if(state.step < courses[state.course].modules.length-1){ state.step++; renderCourse(); window.scrollTo({top:0,behavior:"smooth"}); }
+  if(state.step < courses[state.course].modules.length-1){
+    if((courses[state.course].breakAfter || []).includes(state.step)) renderPeriodBreak();
+    else { state.step++; renderCourse(); window.scrollTo({top:0,behavior:"smooth"}); }
+  }
   else renderFinish();
+}
+
+function renderPeriodBreak() {
+  clearInterval(ticker);
+  const c = courses[state.course];
+  const period = (c.breakAfter || []).indexOf(state.step) + 1;
+  const nextPeriod = period + 1;
+  app.innerHTML = `<section class="period-break"><p class="eyebrow">${period}차시 마침</p><h1>여기서 잠시 멈추고<br>작성 내용을 확인하세요.</h1><p class="lead">지금까지 작성한 답이 구체적인지 살펴보세요. 학교 시간표에 따라 쉬는 시간을 가진 뒤 다음 차시를 시작합니다.</p><div class="period-check"><strong>마침 점검</strong><ul><li>사람의 실명이나 개인정보를 쓰지 않았나요?</li><li>다른 사람의 행동보다 내가 한 행동을 구체적으로 썼나요?</li><li>예시를 그대로 복사하지 않고 자신의 말로 작성했나요?</li></ul></div><div class="button-row"><button class="primary" id="continue-period" type="button">${nextPeriod}차시 시작</button><button class="secondary" id="review-period" type="button">이전 내용 다시 보기</button></div></section>${renderPrintSummary()}`;
+  document.querySelector("#continue-period").addEventListener("click",()=>{state.step++;renderCourse();window.scrollTo({top:0});});
+  document.querySelector("#review-period").addEventListener("click",()=>renderCourse());
 }
 
 function renderFinish() {
@@ -254,6 +320,7 @@ function answerLabel(q, value) {
   if(!value) return "(작성하지 않음)";
   if(q.type === "quiz") return q.options[Number(value)] || value;
   if(q.type === "checks") return value.split("|").map(v=>`• ${q.options[Number(v)]}`).join("\n");
+  if(q.type === "types") return value.split("|").map(v=>`• ${typeData[Number(v)]?.name || v}`).join("\n");
   return value;
 }
 
@@ -279,11 +346,11 @@ function renderTeacher() {
   app.innerHTML=`<section class="teacher-hero"><p class="eyebrow">교사용 운영 안내</p><h1>설명은 줄이고,<br>확인은 정확하게</h1><p class="lead">학생이 화면의 안내에 따라 혼자 작성하되, 교사는 시작 전 안전 원칙을 확인하고 종료 후 결과물을 짧게 검토합니다.</p><div class="button-row"><button class="primary" onclick="window.print()" type="button">운영 안내 인쇄</button></div></section>
   <section class="teacher-grid">
     <article class="info-card"><h2>시작 전 5분</h2><ul class="checklist"><li>2차시 과정은 90분, 4차시 과정은 180분으로 운영</li><li>조치 결정문의 이수 시간과 기관 기준 확인</li><li>조용한 개별 좌석과 인터넷 기기 준비</li><li>피해학생 이름·개인정보를 입력하지 않도록 안내</li><li>직접 접촉·대리 전달·온라인 언급 금지 확인</li><li>힘들 때 도움을 요청할 담당 교사 안내</li></ul></article>
-    <article class="info-card"><h2>진행 중</h2><ul class="checklist"><li>교사는 지속적으로 옆에 있지 않아도 됨</li><li>정답이나 반성 표현을 대신 말해주지 않음</li><li>화면만 켜둔 경우 단계별 결과물로 확인</li><li>휴식은 학교 일정에 맞춰 별도 제공</li><li>위협·보복·자해·타해 표현 발견 시 즉시 개입</li></ul></article>
+    <article class="info-card"><h2>진행 중</h2><ul class="checklist"><li>교사는 지속적으로 옆에 있지 않아도 됨</li><li>정답이나 반성 표현을 대신 말해주지 않음</li><li>각 45분 차시 종료 화면에서 작성 상태 확인</li><li>유형은 복수 선택 가능하며 교사가 최종 확인</li><li>예시 답안을 그대로 옮기지 않았는지 확인</li><li>위협·보복·자해·타해 표현 발견 시 즉시 개입</li></ul></article>
     <article class="info-card full"><h2>종료 후 3단계 검토</h2><table class="rubric"><thead><tr><th>판정</th><th>확인 기준</th><th>교사의 다음 행동</th></tr></thead><tbody><tr><td><strong>완료</strong></td><td>필수 항목이 작성되었고, 책임 행동과 재발 방지 계획이 구체적임</td><td>학생과 핵심 계획 1가지를 구두로 확인하고 기록 보관</td></tr><tr><td><strong>보완 필요</strong></td><td>다른 사람 탓만 하거나, 답이 지나치게 짧고 실행 계획이 모호함</td><td>부족한 문항만 표시하여 학생이 스스로 다시 작성</td></tr><tr><td><strong>상담 필요</strong></td><td>보복 의도, 위협, 자해·타해 암시, 심한 불안이나 피해 호소가 있음</td><td>혼자 돌려보내지 말고 학교의 상담·위기 대응 절차에 따라 조치</td></tr></tbody></table></article>
     <article class="info-card"><h2>검토할 핵심 6가지</h2><ul class="checklist"><li>필수 단계가 모두 작성되었는가</li><li>자신의 행동을 사실 중심으로 적었는가</li><li>다른 사람과 별개로 자신의 책임을 구분했는가</li><li>상대방과 공동체의 영향을 이해했는가</li><li>접촉·보복 금지 원칙을 이해했는가</li><li>도움을 요청할 어른과 시점이 정해졌는가</li></ul></article>
     <article class="info-card"><h2>보관과 개인정보</h2><p>답변은 브라우저의 해당 기기에만 임시 저장됩니다. 공용 기기에서는 인쇄 또는 PDF 저장 후 반드시 ‘이 과정 초기화’를 눌러 삭제하세요.</p><p>학생과 관련 학생의 실명, 학번, 연락처 등은 웹페이지에 입력하지 않습니다. 결과물의 보관 기간과 장소는 학교의 기록 관리 기준을 따릅니다.</p></article>
-    <article class="info-card full"><h2>행정적 유의사항</h2><p>이 웹자료의 완료 화면만으로 공식 이수가 자동 인정되는 것은 아닙니다. 학교폭력예방법 제17조에 따른 특별교육은 조치 유형에 따라 교육감이 정한 기관, 심의위원회가 정한 기간 등의 요건이 적용될 수 있으므로 조치 결정문과 관할 교육지원청 지침을 먼저 확인하세요.</p><p>피해학생에게 전달할 사과문이나 만남을 학생에게 요구하지 않습니다. 회복적 절차가 필요한 경우에도 피해학생의 안전과 자발성을 우선하고, 학교가 허용한 절차 안에서 진행합니다.</p></article>
+    <article class="info-card full"><h2>행정적 유의사항</h2><p>이 웹자료의 완료 화면만으로 공식 이수가 자동 인정되는 것은 아닙니다. 학교폭력예방법 제17조에 따른 특별교육은 조치 유형에 따라 교육감이 정한 기관, 심의위원회가 정한 기간 등의 요건이 적용될 수 있으므로 조치 결정문과 관할 교육지원청 지침을 먼저 확인하세요.</p><p>피해학생에게 전달할 사과문이나 만남을 학생에게 요구하지 않습니다. 회복적 절차가 필요한 경우에도 피해학생의 안전과 자발성을 우선하고, 학교가 허용한 절차 안에서 진행합니다.</p><p>성폭력 등 민감한 사안은 학생에게 구체적인 장면을 반복해서 서술하도록 요구하지 않습니다. 학교의 성폭력 대응 절차와 전문상담 체계에 따라 별도 지원하고, 웹자료는 보조 활동으로만 사용합니다.</p></article>
   </section>`;
 }
 
